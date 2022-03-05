@@ -1,0 +1,37 @@
+<div class="row d-flex justify-content-center">
+
+    <h1 class="display-4 text-center">Eine Aufgabe hinzufügen.</h1>
+
+    <div class="col-6">
+
+        <form #addTodoForm="ngForm">
+            <div class="form-group">
+                <label for="">Name der Aufgabe</label>
+                <input class="form-control m-1" type="text" name="todoName" [(ngModel)]="todo.todoName" required/>
+            </div>
+
+            <div class="form-group">
+                <label for="">Beschreibung der Aufgabe</label>
+                <textarea class="form-control m-1" id="" rows="10" cols="30" name="todoDescription" [(ngModel)]="todo.todoDescription" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="">URL Image :</label>
+                <input class="form-control m-1" type="text" name="image" [(ngModel)]="todo.image" required/>
+            </div>
+
+            <div class="form-group">
+                <label for="">Status : </label>
+                <select name="" id="" class="form-control" name="isModif" [(ngModel)]="todo.isModif">
+          <option value="true">In der Ausführung</option>
+          <option value="false">Abgeschloßen</option>
+
+        </select>
+
+            </div>
+
+            <button (click)="onSubmit()" [disabled]="!addTodoForm.form.valid" type="button" class="btn btn-success btn-lg">hinzufügen</button>
+
+        </form>
+    </div>
+</div>

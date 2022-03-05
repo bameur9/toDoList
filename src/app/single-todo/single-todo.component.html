@@ -1,0 +1,22 @@
+<p *ngIf="!todo">{{err}}</p>
+<div class="d-flex justify-content-center">
+    <div class="card mb-3 " style="max-width: 840px;" *ngIf="todo">
+        <div>
+            <h1 class="display-4 text-center">Details.</h1>
+        </div>
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img [src]="todo.image" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h2 class="card-title">{{todo.todoName}}</h2>
+                    <h6>Beschreibung</h6>
+                    <p class="card-text">T{{todo.todoDescription}}</p>
+                    <a type="button" class="btn btn-primary" routerLink="/todos">zurück</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

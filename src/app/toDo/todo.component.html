@@ -1,0 +1,26 @@
+<h1 class="display-4 text-center">Liste der Aufgaben</h1>
+<p>{{today|date: 'short'}}</p>
+<ul class="list-group">
+    <li class="list-group-item" *ngFor="let todo of todos, let i = index">
+
+        <div [ngClass]="{encours:todo.todoStatus, terminee: !todo.todoStatus}">
+
+            <a [href]="todo.image">
+                <img [src]="todo.image" />
+            </a>
+            <!--Appliquer les Pipes-->
+            {{todo.todoName | lowercase}}
+
+            <button type="button" class="btn btn-primary mr-1" [disabled]="todo.todoStatus" (click)="onChangeStatus(i)">In der Ausführung</button>
+            <button type="button" class="btn btn-success mr-1" [disabled]="!todo.todoStatus" (click)="onChangeStatus(i)">Abgeschloßen</button>
+
+            <!--Action de modification-->
+            <button type="button" class="btn btn-danger mr-1" *ngIf="!todo.isModif" (click)="onChangeIfModif(i)">Modifier</button>
+            <button type="button" class="btn btn-success mr-1" *ngIf="todo.isModif" (click)="onChangeIfModif(i)">ändern</button>
+
+            <button class="btn btn-success mr-1" (click)="onView(i)">mehr sehen!</button>
+
+            <input *ngIf="todo.isModif" class="form-control" [(ngModel)]="todo.todoName" />
+        </div>
+    </li>
+</ul>
